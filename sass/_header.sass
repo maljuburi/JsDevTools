@@ -1,29 +1,49 @@
 header
   background: white
-  overflow: hidden
   .logo
     display: inline-block
-    width: 20%
-    color: white
-    padding: 15px
+    width: 30%
+    padding: 10px
 
   .nav
     display: inline-block
-    width: 70%
+    width: 65%
+    >ul
+      >li
+        display: inline-block
+        >a
+          text-align: center
+          color: $blue
+          padding: 5px
+          margin-right: 10px
+          border-bottom: 1px solid rgba(0, 0, 0, 0)
+          +transition(300ms)
+          &:hover
+            color: $red
+            border-bottom: 1px solid $red
 
-    li
-      display: inline-block
-      a
-        padding: 10px 10px
+.dropdown
+  position: relative
+  &::after
+    content: "\00a0 \203A \00a0"
+    display: inline-block
+    transform: rotate(90deg)
+
+
+.sub-menu
+  display: none
+  position: absolute
+  top: 48px
+  background: $blue
+  border-radius: 3px
+  >li
+    display: block
+    >a
+      color: white
+      padding: 7px 15px
+      border-bottom: 1px solid rgba(255,255,255, 0.3)
+      display: block
+      &:hover
         color: $blue
-        &:hover
-          border-bottom: 1px solid $blue
-
-
-.content
-  max-width: 60%
-  padding: 20px
-  background: white
-  margin: 0 auto
-  margin-top: 10px
-  border: 1px solid $lightgray
+        background: white
+        +transition(300ms)
