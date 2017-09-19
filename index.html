@@ -1,11 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
+
+    <!--
+      JavaScript 6th Edition
+      Chapter 1
+      Individual Case Project
+
+      Author: Muhammad Al Juburi
+      Date:   09/19/17
+
+   -->
+
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>JsDevTools</title>
     <link rel="stylesheet" href="css/style.css">
-
   </head>
+
+
   <body>
 
     <header>
@@ -16,40 +29,95 @@
         </div><!--.logo-->
 
         <div class="nav">
+
           <ul class="float-right">
             <li><a href="index.html">Home</a></li>
             <li><a href="#" id="dropdown" class="dropdown">Tools</a>
                 <ul id="subMenu" class="sub-menu">
-                  <li><a href="#">Tool 1</a></li>
-                  <li><a href="#">Tool 2</a></li>
-                  <li><a href="#">Tool 3</a></li>
+                  <li><a href="tool1.html">Tool 1</a></li>
+                  <li><a href="tool2.html">Tool 2</a></li>
+                  <li><a href="tool3.html">Tool 3</a></li>
                 </ul>
             </li>
           </ul>
+
         </div><!--.nav -->
-
       </div><!--.wrapper-->
-
     </header>
-    <section>
-      <div class="wrapper">
 
+
+    <section>
+
+      <div class="wrapper">
         <div class="content">
           <h1>
-            <script type="text/javascript">
+
+            <!--=============
+                 javascript
+              ==============-->
+            <script>
               var person = prompt("Hello!, Enter you name: ");
 
               if (person == null || person == ""){
-                document.write ("<h1 class='red-text'>Your don't seem like a friendly person! :( </h1>");
+                document.write ("<h1 class='red-text center'>Your don't seem like a friendly person! :( </h1>");
               }else{
-                document.write ("<h1 class='green-text'> Hello "+person+"!, Thank you for visiting my website :) </h1>")
+                document.write ("<h1 class='green-text center'> Hello "+person+"!, Thank you for visiting my website :) </h1>");
               }
 
             </script>
+
+
           </h1>
         </div><!--.content-->
-
       </div><!--.wrapper-->
+
+    </section>
+
+    <section>
+      <div class="wrapper">
+        <div class="content">
+          <h1 class="blue-text">Javascript used</h1>
+          <hr>
+            <div class="script-code">
+
+      <pre><code>
+        //===============
+        //  Asking the user's name.
+        //=============================
+
+
+        var person = prompt("Hello!, Enter you name: ");
+
+        if (person == null || person == ""){
+          document.write ("Your don't seem like a friendly person! :(");
+        }else{
+          document.write ("Hello "+person+"!, Thank you for visiting my website :)");
+        }
+
+        //==================
+        //  Dropdown-Menu feature
+        //===========================
+
+        var dropdown = document.getElementById("dropdown");
+        var subMenu = document.getElementById("subMenu");
+
+        dropdown.addEventListener('click', showSubMenu);
+
+        function showSubMenu(){
+          if (subMenu.style.display == "block"){
+            subMenu.style.display="none";
+          }else{
+            subMenu.style.display="block";
+          }
+
+        }
+
+      </code></pre>
+
+          </div><!-- .script-code -->
+        </div><!-- .content -->
+      </div><!-- .wrapper -->
+
     </section>
 
 
@@ -63,4 +131,12 @@
     <script src="js/main.js"></script>
 
   </body>
+
+  <foote>
+    <div class="wrapper">
+      <div class="copyright center">
+        <p>Copyright&copy; Muhammad Al Juburi 2017</p>
+      </div>
+    </div>
+  </foote>
 </html>
