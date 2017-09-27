@@ -1,6 +1,5 @@
 
 .content
-  // max-width: 100%
   padding: 20px
   background: white
   margin: 0 auto
@@ -12,4 +11,57 @@
 .script-code
   background: $darkgray
   color: white
-  
+  span
+    color: $blue
+
+
+
+
+.slideshow-container
+  position: relative
+  .slide
+    position: relative
+    display: none
+    background-color: $darkgray
+    border-radius: 10px
+    overflow: hidden
+    img
+      width: 100%
+      vertical-align: middle
+    .caption
+      position: absolute
+      left: 25%
+      right: 25%
+      bottom: 0
+      background-color: rgba(0, 0, 0, 0.5)
+      color: $lightgray
+      font-weight: lighter
+      padding: 15px 0
+      border-radius: 10px 10px 0 0
+
+.prev,
+.next
+  cursor: pointer
+  position: absolute
+  top: 50%
+  width: auto
+  margin-top: -22px
+  padding: 16px
+  color: $lightgray
+  background-color: rgba(0, 0, 0, 0.3)
+  font-weight: bold
+  font-size: 18px
+  +transition(0.4s)
+
+
+.next
+  right: 1px
+  border-radius: 50% 0 0 50%
+.prev
+  left: 1px
+  border-radius: 0 50% 50% 0
+
+
+.prev:hover,
+.next:hover
+  background-color: rgba(0, 0, 0, 0.8)

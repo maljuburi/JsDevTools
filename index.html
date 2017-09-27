@@ -4,8 +4,8 @@
 
     <!--
       JavaScript 6th Edition
-      Chapter 1
-      Individual Case Project
+      Chapter 1 & 2
+      Individual Case Project 1
 
       Author: Muhammad Al Juburi
       Date:   09/19/17
@@ -32,11 +32,11 @@
 
           <ul class="float-right">
             <li><a href="index.html">Home</a></li>
-            <li><a href="#" id="dropdown" class="dropdown">Tools</a>
+            <li><a href="#" id="dropdown" class="dropdown">Modules</a>
                 <ul id="subMenu" class="sub-menu">
-                  <li><a href="tool1.html">Tool 1</a></li>
-                  <li><a href="tool2.html">Tool 2</a></li>
-                  <li><a href="tool3.html">Tool 3</a></li>
+                  <li><a href="mod3.html">module 3</a></li>
+                  <li><a href="mod4.html">module 4</a></li>
+                  <li><a href="mod5.html">module 5</a></li>
                 </ul>
             </li>
           </ul>
@@ -81,11 +81,11 @@
             <div class="script-code">
 
       <pre><code>
+        <span><code>
         //===============
         //  Asking the user's name.
         //=============================
-
-
+        </code></span>
         var person = prompt("Hello!, Enter you name: ");
 
         if (person == null || person == ""){
@@ -94,10 +94,11 @@
           document.write ("Hello "+person+"!, Thank you for visiting my website :)");
         }
 
-        //==================
+        <span><code>
+        //===============
         //  Dropdown-Menu feature
-        //===========================
-
+        //=========================
+        </code></span>
         var dropdown = document.getElementById("dropdown");
         var subMenu = document.getElementById("subMenu");
 
@@ -124,6 +125,17 @@
 
 
 
+    <footer>
+      <div class="wrapper">
+        <div class="copyright center">
+          <p>Copyright&copy; Muhammad Al Juburi 2017</p>
+        </div>
+      </div>
+    </footer>
+
+
+
+
 <!--==================
  Linking Javascript
 ===================-->
@@ -132,11 +144,4 @@
 
   </body>
 
-  <foote>
-    <div class="wrapper">
-      <div class="copyright center">
-        <p>Copyright&copy; Muhammad Al Juburi 2017</p>
-      </div>
-    </div>
-  </foote>
 </html>
