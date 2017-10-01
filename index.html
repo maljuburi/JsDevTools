@@ -56,13 +56,28 @@
                  javascript
               ==============-->
             <script>
-              var person = prompt("Hello!, Enter you name: ");
+              // Onload, Check Person in session
+              var person = sessionStorage.getItem('person');
+              if(person == "" || person == null ){
+                // if session is empty
+                var person = prompt("Hello!, Enter you name: ");
+                // Then store it in a session
+                sessionStorage.setItem('person',person);
 
-              if (person == null || person == ""){
-                document.write ("<h1 class='red-text center'>Your don't seem like a friendly person! :( </h1>");
+                if(person == "" || person == null ){
+                  // if user didn't enter anything
+                  sessionStorage.setItem('person','Unknown User');
+                  document.write ("<h1 class='blue-text center'> Hello! "+sessionStorage.getItem('person')+", Thank you for visiting my website :) </h1>");
+                  // document.write ("<h1 class='red-text center'>Your don't seem like a friendly person! :( </h1>");
+                }else{
+                  document.write ("<h1 class='blue-text center'> Hello! "+sessionStorage.getItem('person')+", Thank you for visiting my website :) </h1>");
+                }
+
               }else{
-                document.write ("<h1 class='green-text center'> Hello "+person+"!, Thank you for visiting my website :) </h1>");
+                document.write ("<h1 class='blue-text center'> Hello! "+sessionStorage.getItem('person')+", Thank you for visiting my website :) </h1>");
               }
+
+
 
             </script>
 
