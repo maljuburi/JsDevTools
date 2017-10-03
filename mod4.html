@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
-  <head>
 
-    <!--
+<head>
+
+  <!--
       JavaScript 6th Edition
       Chapter 1
       Individual Case Project
@@ -12,72 +13,211 @@
 
    -->
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>JsDevTools</title>
-    <link rel="stylesheet" href="css/style.css">
-  </head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JsDevTools</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
 
 
-  <body>
+<body>
 
-    <header>
-      <div class="wrapper">
+  <header>
+    <div class="wrapper">
 
-        <div class="logo">
-          <h2><span class="red-text">JS</span><span class="blue-text">DevTools</span></h2>
-        </div><!--.logo-->
+      <div class="logo">
+        <h2><span class="red-text">JS</span><span class="blue-text">DevTools</span></h2>
+      </div>
+      <!--.logo-->
 
-        <div class="nav">
+      <div class="nav">
 
-          <ul class="float-right">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#" id="dropdown" class="dropdown">Modules</a>
-                <ul id="subMenu" class="sub-menu">
-                  <li><a href="mod3.html">Module 3</a></li>
-                  <li><a href="mod4.html">Module 4</a></li>
-                  <li><a href="mod5.html">Module 5</a></li>
-                </ul>
-            </li>
-          </ul>
+        <ul class="float-right">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#" id="dropdown" class="dropdown">Modules</a>
+            <ul id="subMenu" class="sub-menu">
+              <li><a href="mod3.html">Module 3</a></li>
+              <li><a href="mod4.html">Module 4</a></li>
+              <li><a href="mod5.html">Module 5</a></li>
+            </ul>
+          </li>
+        </ul>
 
-        </div><!--.nav -->
-      </div><!--.wrapper-->
-    </header>
-
-
-    <section>
-
-      <div class="wrapper">
-        <div class="content">
-          <h1 class="center">
-            Module 4 Page
-          </h1>
-        </div><!--.content-->
-      </div><!--.wrapper-->
-
-    </section>
+      </div>
+      <!--.nav -->
+    </div>
+    <!--.wrapper-->
+  </header>
 
 
+  <section>
+
+    <div class="wrapper">
+      <div class="content">
+        <h1 class="center">
+            Debugging
+        </h1>
+        <h4 class="center italic">
+            Chapter 4
+        </h4>
+      </div>
+      <!--.content-->
+    </div>
+    <!--.wrapper-->
+
+  </section>
+
+
+  <section>
+
+    <div class="wrapper">
+      <div class="content">
+        <h1 class="center">
+            Division Calculator
+        </h1><br>
+        <form class="form">
+          <label for="numerator">Numerator</label>
+          <input id="num1" type="number" name="numerator"><br>
+          <label for="denominator">Denominator</label>
+          <input id="num2" type="number" name="denominator"><br>
+          <input type="button" onclick="formResult();" name="calculate" value="Calculate">
+        </form>
+      </div>
+      <!--.content-->
+    </div>
+    <!--.wrapper-->
+
+  </section>
 
 
 
-    <footer>
-      <div class="wrapper">
-        <div class="copyright center">
-          <p>Copyright&copy; Muhammad Al Juburi 2017</p>
+  <section>
+
+    <div class="wrapper">
+      <div class="content">
+        <h1 class="center">
+            Division Result
+        </h1><br>
+        <div id="result" class="center">
+
         </div>
       </div>
-    </footer>
+      <!--.content-->
+    </div>
+    <!--.wrapper-->
+
+  </section>
 
 
-    <!--==================
+
+  <section>
+    <div class="wrapper">
+      <div class="content">
+        <h1 class="blue-text">Javascript used</h1>
+        <hr>
+          <div class="script-code">
+
+    <pre><code>
+      <span><code>
+        // Call this function option
+        // on the click of the result Button
+        //===============================
+      </code></span>
+
+      function formResult(){
+        var num1 = document.getElementById("num1").value;
+        var num2 = document.getElementById("num2").value;
+        <span><code>
+          // Trying the the following code
+          ===============================
+        </code></span>
+        try {
+          var result = (num1 / num2);
+          if (num1 =="" || num2==""){
+            throw new Error ("Please Enter a Numerator and a Denominator");
+         }else if(num2 == 0){
+           throw new Error ("Denominator cannot be ZERO");
+         }
+        }
+        <span><code>
+          // If catch an error, display it
+          //===============================
+        </code></span>
+
+        catch(err){
+          document.getElementById("result").innerHTML = "&lt;h4 class='red-text'&gt;"+err.message+"&lt;/h4&gt;";
+          return;
+        }
+        <span><code>
+          // If no Error, display the result
+          // ================================
+        </code></span>
+          document.getElementById("result").innerHTML = "&lt;h4&gt;Numerator:  " + num1 + "&lt;/h4&gt;";
+          document.getElementById("result").innerHTML += "&lt;h4&gt;Denominator:  " + num2 + "&lt;/h4&gt;";
+          document.getElementById("result").innerHTML += "&lt;h4&gt;Result:  " + result + "&lt;/h4&gt;";
+      }
+      <span><code>
+        //End of Function
+      </code></span>
+
+
+    </code></pre>
+
+        </div><!-- .script-code -->
+      </div><!-- .content -->
+    </div><!-- .wrapper -->
+
+  </section>
+
+
+  <footer>
+    <div class="wrapper">
+      <div class="copyright center">
+        <p>Copyright&copy; Muhammad Al Juburi 2017</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--==================
        Linking Javascript
     ===================-->
 
-    <script src="js/modernizr.custom.05819.js"></script>
-    <script src="js/main.js"></script>
+  <script src="js/modernizr.custom.05819.js"></script>
+  <script src="js/main.js"></script>
+  <script>
 
-  </body>
+    function formResult(){
+      var num1 = document.getElementById("num1").value;
+      var num2 = document.getElementById("num2").value;
+      // Trying the following code
+      try {
+
+        var result = (num1 / num2);
+        if (num1 =="" || num2==""){
+          throw new Error ("Please Enter a Numerator and a Denominator");
+
+
+       }else if(num2 == 0){
+         throw new Error ("Denominator cannot be ZERO");
+       }
+      }
+
+      // If catch an error, display it
+      catch(err){
+        document.getElementById("result").innerHTML = "<h4 class='red-text'>"+err.message+"</h4>";
+        return;
+      }
+
+
+
+        document.getElementById("result").innerHTML = "<h4>Numerator:  " + num1 + "</h4>";
+        document.getElementById("result").innerHTML += "<h4>Denominator:  " + num2 + "</h4>";
+        document.getElementById("result").innerHTML += "<h4>Result:  " + result + "</h4>";
+
+    }
+
+  </script>
+</body>
 
 </html>
