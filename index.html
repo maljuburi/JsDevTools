@@ -130,6 +130,38 @@
 
         }
 
+        <span><code>
+        //===============================
+        // Onload, Check Person if already in session
+        //=============================================
+        </code></span>
+        var person = sessionStorage.getItem('person');
+        if(person == "" || person == null ){
+          <span><code>
+          // if session is empty
+          </code></span>
+          var person = prompt("Hello!, Enter you name: ");
+          <span><code>
+          // Then store it in a session
+          </code></span>
+          sessionStorage.setItem('person',person);
+
+          <span><code>
+          // if user didn't enter anything
+          </code></span>
+          if(person == "" || person == null ){
+
+            sessionStorage.setItem('person','Unknown User');
+            document.write ("&lt;h1 class='blue-text center'&gt; Hello! "+sessionStorage.getItem('person')+", Thank you for visiting my website :) &lt;/h1&gt;");
+
+          }else{
+            document.write ("&lt;h1 class='blue-text center'&gt; Hello! "+sessionStorage.getItem('person')+", Thank you for visiting my website :) &lt;/h1&gt;");
+          }
+
+        }else{
+          document.write ("&lt;h1 class='blue-text center'&gt; Hello! "+sessionStorage.getItem('person')+", Thank you for visiting my website :) &lt;/h1&gt;");
+        }
+
       </code></pre>
 
         </div>
