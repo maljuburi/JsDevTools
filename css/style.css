@@ -2,7 +2,8 @@
 * {
   padding: 0;
   margin: 0;
-  font-family: sans-serif, Arial; }
+  font-family: sans-serif, Arial;
+  box-sizing: border-box; }
 
 a {
   color: #31708f; }
@@ -178,33 +179,53 @@ header {
 
 .form {
   width: 90%;
-  padding: 10px;
+  padding: 1em 2em;
   background: #31708f;
   margin: 0 auto;
   border: 1px solid #31708f;
   border-radius: 5px;
-  text-align: center;
   color: #ededed; }
-  .form input[type=number] {
+  .form input[type=text],
+  .form input[type=number],
+  .form input[type=email],
+  .form select,
+  .form textarea {
     display: block;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     padding: 10px;
     border-radius: 5px;
     border: none;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.4); }
-    .form input[type=number]:focus {
+    .form input[type=text]:focus,
+    .form input[type=number]:focus,
+    .form input[type=email]:focus,
+    .form select:focus,
+    .form textarea:focus {
       outline: none;
       border: 1px solid #31708f; }
-  .form input[type=button] {
+  .form input[type=button],
+  .form input[type=submit],
+  .form input[type=reset] {
     padding: 10px;
     background-color: #ededed;
     color: #202020;
     margin: 5px 0;
     border-radius: 5px; }
   .form label {
-    display: block;
+    display: inline-block;
     padding: 10px; }
+
+.hide {
+  display: none; }
+
+.show {
+  display: block; }
+
+.error {
+  color: red;
+  text-shadow: 0 0 2px black;
+  padding: 2px; }
 
 #result {
   color: #31708f; }

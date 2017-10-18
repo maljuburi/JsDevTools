@@ -73,17 +73,21 @@
 
 .form
   width: 90%
-  padding: 10px
+  padding: 1em 2em
   background: $blue
   margin: 0 auto
   border: 1px solid $blue
   border-radius: 5px
-  text-align: center
   color: $lightgray
 
-  input[type=number]
+
+  input[type=text],
+  input[type=number],
+  input[type=email],
+  select,
+  textarea
     display: block
-    width: 90%
+    width: 100%
     margin: 0 auto
     padding: 10px
     border-radius: 5px
@@ -93,7 +97,9 @@
       outline: none
       border: 1px solid $blue
 
-  input[type=button]
+  input[type=button],
+  input[type=submit],
+  input[type=reset]
     padding: 10px
     background-color: $lightgray
     color: $darkgray
@@ -102,8 +108,17 @@
 
 
   label
-    display: block
+    display: inline-block
     padding: 10px
+.hide
+  display: none
+.show
+  display: block
+.error
+  color: red
+  text-shadow: 0 0 2px black
+  padding: 2px
+
 
 
 #result
