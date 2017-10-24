@@ -26,20 +26,37 @@
     <div class="wrapper">
 
       <div class="logo">
-        <h2><span class="red-text">JS</span><span class="blue-text">DevTools</span></h2>
+        <h2>
+          <span class="red-text">JS</span>
+          <span class="blue-text">DevTools</span>
+        </h2>
       </div>
       <!--.logo-->
 
       <div class="nav">
 
         <ul class="float-right">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="#" id="dropdown" class="dropdown">Modules</a>
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <a href="#" id="dropdown" class="dropdown">Modules</a>
             <ul id="subMenu" class="sub-menu">
-              <li><a href="mod3.html">Module 3</a></li>
-              <li><a href="mod4.html">Module 4</a></li>
-              <li><a href="mod5.html">Module 5</a></li>
-              <li><a href="mod6.html">Module 6</a></li>
+              <li>
+                <a href="mod3.html">Module 3</a>
+              </li>
+              <li>
+                <a href="mod4.html">Module 4</a>
+              </li>
+              <li>
+                <a href="mod5.html">Module 5</a>
+              </li>
+              <li>
+                <a href="mod6.html">Module 6</a>
+              </li>
+              <li>
+                <a href="mod7.html">Module 7</a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -56,10 +73,10 @@
     <div class="wrapper">
       <div class="content">
         <h1 class="center">
-            Debugging
+          Debugging
         </h1>
         <h4 class="center italic">
-            Chapter 4
+          Chapter 4
         </h4>
       </div>
       <!--.content-->
@@ -74,13 +91,16 @@
     <div class="wrapper">
       <div class="content">
         <h1 class="center">
-            Division Calculator
-        </h1><br>
+          Division Calculator
+        </h1>
+        <br>
         <form class="form center">
           <label for="num1">Numerator</label>
-          <input id="num1" type="number" name="numerator"><br>
+          <input id="num1" type="number" name="numerator">
+          <br>
           <label for="num2">Denominator</label>
-          <input id="num2" type="number" name="denominator"><br>
+          <input id="num2" type="number" name="denominator">
+          <br>
           <input type="button" onclick="formResult();" name="calculate" value="Calculate">
         </form>
       </div>
@@ -97,8 +117,9 @@
     <div class="wrapper">
       <div class="content">
         <h1 class="center">
-            Division Result
-        </h1><br>
+          Division Result
+        </h1>
+        <br>
         <div id="result" class="center">
 
         </div>
@@ -116,9 +137,9 @@
       <div class="content">
         <h1 class="blue-text">Javascript used</h1>
         <hr>
-          <div class="script-code">
+        <div class="script-code">
 
-    <pre><code>
+          <pre><code>
       <span><code>
         // Call this function option
         // on the click of the result Button
@@ -164,9 +185,12 @@
 
     </code></pre>
 
-        </div><!-- .script-code -->
-      </div><!-- .content -->
-    </div><!-- .wrapper -->
+        </div>
+        <!-- .script-code -->
+      </div>
+      <!-- .content -->
+    </div>
+    <!-- .wrapper -->
 
   </section>
 
@@ -187,37 +211,35 @@
   <script src="js/modernizr.custom.05819.js"></script>
   <script src="js/main.js"></script>
   <script>
-
-    function formResult(){
+    function formResult() {
       var num1 = document.getElementById("num1").value;
       var num2 = document.getElementById("num2").value;
       // Trying the following code
       try {
 
         var result = (num1 / num2);
-        if (num1 =="" || num2==""){
-          throw new Error ("Please Enter a Numerator and a Denominator");
+        if (num1 == "" || num2 == "") {
+          throw new Error("Please Enter a Numerator and a Denominator");
 
 
-       }else if(num2 == 0){
-         throw new Error ("Denominator cannot be ZERO");
-       }
+        } else if (num2 == 0) {
+          throw new Error("Denominator cannot be ZERO");
+        }
       }
 
       // If catch an error, display it
-      catch(err){
-        document.getElementById("result").innerHTML = "<h4 class='red-text'>"+err.message+"</h4>";
+      catch (err) {
+        document.getElementById("result").innerHTML = "<h4 class='red-text'>" + err.message + "</h4>";
         return;
       }
 
 
 
-        document.getElementById("result").innerHTML = "<h4>Numerator:  " + num1 + "</h4>";
-        document.getElementById("result").innerHTML += "<h4>Denominator:  " + num2 + "</h4>";
-        document.getElementById("result").innerHTML += "<h4>Result:  " + result + "</h4>";
+      document.getElementById("result").innerHTML = "<h4>Numerator:  " + num1 + "</h4>";
+      document.getElementById("result").innerHTML += "<h4>Denominator:  " + num2 + "</h4>";
+      document.getElementById("result").innerHTML += "<h4>Result:  " + result + "</h4>";
 
     }
-
   </script>
 </body>
 
