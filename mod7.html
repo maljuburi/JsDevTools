@@ -95,8 +95,26 @@
 
         <div class="wrapper">
             <div class="content">
+              <h2 class="center">Select a Date</h2><br>
+              <form onsubmit="return displayDate();" name="form" class="form">
 
+                <p>
+                  Month : <input type="text" name="month" title="Format: MM &#10; example: 10" pattern="(0[0-9]|1[0-2])" placeholder="MM" required>
+                </p><br>
+                <p>
+                  Day : <input type="text" name="day" title="Format: DD &#10; example: 24" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])" placeholder="DD" required>
+                </p><br>
+                <p>
+                  Year : <input type="text" name="year" title="Format: YYYY &#10; example: 2017" pattern="[0-9]{4}" placeholder="YYYY" required>
+                </p><br>
+                <br>
 
+                <p class="center">
+                  <input type="submit" name="submit" value="Submit">
+                  <input type="reset" name="reset" value="Reset">
+                </p>
+
+              </form>
 
             </div>
             <!--.content-->
@@ -106,6 +124,23 @@
     </section>
 
 
+    <section>
+
+      <div class="wrapper">
+        <div class="content">
+          <h1 class="center">
+            Output
+          </h1>
+          <br>
+          <div id="dateResult">
+
+          </div>
+        </div>
+        <!--.content-->
+      </div>
+      <!--.wrapper-->
+
+    </section>
 
 
     <section>
@@ -116,9 +151,33 @@
                 <div class="script-code">
 
                     <pre><code>
+                      function displayDate() {
+                        var result = document.getElementById("dateResult");
+                        var month = document.form.month.value;
+                        var day = document.form.day.value;
+                        var year = document.form.year.value;
+
+                        var prevDate = new Date(year,month,day);
+                        var currentDate = new Date();
+
+                        elapsedDay = 1000 * 60 * 60 * 24;
+                        elapsedMonth = elapsedDay * 31;
+                        elapsedYear = elapsedMonth * 12;
+                        elapsedDate = currentDate - prevDate;
+
+                        daydiff = Math.floor(elapsedDate/elapsedDay)+31;
+                        monthdiff = Math.floor(elapsedDate/elapsedMonth)+1;
+                        yeardiff = Math.floor(elapsedDate/elapsedYear);
 
 
-    </code></pre>
+                        result.innerHTML += "&lt;h4&gt"+yeardiff+" Year(s) &lt;/h4&gt";
+                        result.innerHTML += "&lt;h4&gt"+monthdiff+" Month(s) &lt;/h4&gt";
+                        result.innerHTML += "&lt;h4&gt"+daydiff+" Day(s) &lt;/h4&gt";
+
+                        return false;
+                        }
+
+                    </code></pre>
 
                 </div>
                 <!-- .script-code -->
@@ -146,95 +205,31 @@
     <script src="js/modernizr.custom.05819.js"></script>
     <script src="js/main.js"></script>
     <script>
-        function formResult() {
-            var valid = 0;
-            var d = document;
-            var color = "";
-            var name = d.form.name.value;
-            var email = d.form.email.value;
-            var gender = d.form.gender.value;
-            var country = d.form.country.value;
-            var message = d.form.message.value;
+    function displayDate() {
+      var result = document.getElementById("dateResult");
+      var month = document.form.month.value;
+      var day = document.form.day.value;
+      var year = document.form.year.value;
 
-            if (d.getElementById("red").checked) {
-                color = " red";
-            }
+      var prevDate = new Date(year,month,day);
+      var currentDate = new Date();
 
-            if (d.getElementById("green").checked) {
-                color += " green";
-            }
+      elapsedDay = 1000 * 60 * 60 * 24;
+      elapsedMonth = elapsedDay * 31;
+      elapsedYear = elapsedMonth * 12;
+      elapsedDate = currentDate - prevDate;
 
-            if (d.getElementById("blue").checked) {
-                color += " blue";
-            }
-
-            if (name == "") {
-                d.getElementById("nameError").classList.remove("hide");
-                d.form.name.style.border = "1px solid red";
-                valid = 0;
-            } else {
-                d.getElementById("nameError").classList.add("hide");
-                d.form.name.style.border = "1px solid green";
-                valid = 1;
-
-            }
-
-            if (email == "") {
-                d.getElementById("emailError").classList.remove("hide");
-                d.form.email.style.border = "1px solid red";
-                valid = 0;
-            } else {
-                d.getElementById("emailError").classList.add("hide");
-                d.form.email.style.border = "1px solid green";
-                valid = 1
-            }
-
-            if (gender == "") {
-                d.getElementById("genderError").classList.remove("hide");
-                valid = 0;
-
-            } else {
-                d.getElementById("genderError").classList.add("hide");
-                valid = 1;
-            }
-
-            if (country == "") {
-                d.getElementById("countryError").classList.remove("hide");
-                d.form.country.style.border = "1px solid red";
-                valid = 0;
-            } else {
-                d.getElementById("countryError").classList.add("hide");
-                d.form.country.style.border = "1px solid green";
-                valid = 1;
-            }
-
-            if (message == "") {
-                d.getElementById("messageError").classList.remove("hide");
-                d.form.message.style.border = "1px solid red";
-                valid = 0;
-            } else {
-                d.getElementById("messageError").classList.add("hide");
-                d.form.message.style.border = "1px solid green";
-                valid = 1;
-            }
+      daydiff = Math.floor(elapsedDate/elapsedDay)+31;
+      monthdiff = Math.floor(elapsedDate/elapsedMonth)+1;
+      yeardiff = Math.floor(elapsedDate/elapsedYear);
 
 
+      result.innerHTML += "<h4>"+yeardiff+" Year(s) </h4>";
+      result.innerHTML += "<h4>"+monthdiff+" Month(s) </h4>";
+      result.innerHTML += "<h4>"+daydiff+" Day(s) </h4>";
 
-            if (valid == 1) {
-                d.form.style.display = "none";
-                d.getElementById("result").innerHTML = "<p> Name : " + name + "</p><br />";
-                d.getElementById("result").innerHTML += "<p> Email : " + email + "</p><br />";
-                d.getElementById("result").innerHTML += "<p> Colours : " + color + "</p><br />";
-                d.getElementById("result").innerHTML += "<p> Gender : " + gender + "</p><br />";
-                d.getElementById("result").innerHTML += "<p> Country : " + country + "</p><br />";
-                d.getElementById("result").innerHTML += "<p> Message : " + message + "</p><br />";
-                return false;
-
-            } else {
-                return false;
-            }
-
-        }
+      return false;
+      }
     </script>
 </body>
 
