@@ -32,6 +32,9 @@ li {
 a {
   text-decoration: none; }
 
+p {
+  margin-bottom: 0.5em; }
+
 .center {
   text-align: center; }
 
@@ -90,6 +93,7 @@ header {
     transform: rotate(90deg); }
 
 .sub-menu {
+  z-index: 100;
   display: none;
   position: absolute;
   top: 48px;
@@ -118,6 +122,12 @@ header {
   margin-top: 10px;
   border: 1px solid #ededed;
   border-radius: 5px; }
+
+.user {
+  display: none;
+  text-align: center; }
+  .user span {
+    font-size: 2em; }
 
 .script-code {
   background: #202020;
@@ -188,6 +198,7 @@ header {
   .form input[type=text],
   .form input[type=number],
   .form input[type=email],
+  .form input[type=password],
   .form select,
   .form textarea {
     display: block;
@@ -200,6 +211,7 @@ header {
     .form input[type=text]:focus,
     .form input[type=number]:focus,
     .form input[type=email]:focus,
+    .form input[type=password]:focus,
     .form select:focus,
     .form textarea:focus {
       outline: none;
