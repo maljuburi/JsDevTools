@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!--
+      JavaScript 6th Edition
+      Chapter 10
+      Individual Case Project 10
+
+      Author: Muhammad Al Juburi
+      Date:   11/17/17
+
+   -->
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JsDevTools | Module 10</title>
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+
+
+
+<body>
+    <header>
+        <div class="wrapper">
+
+            <div class="logo">
+                <h2>
+                    <span class="red-text">JS</span>
+                    <span class="blue-text">DevTools</span>
+                </h2>
+            </div>
+            <!--.logo-->
+
+            <div class="nav">
+
+                <ul class="float-right">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="#" id="dropdown" class="dropdown">Modules</a>
+                        <ul id="subMenu" class="sub-menu">
+                            <li>
+                                <a href="mod3.html">Module 3</a>
+                            </li>
+                            <li>
+                                <a href="mod4.html">Module 4</a>
+                            </li>
+                            <li>
+                                <a href="mod5.html">Module 5</a>
+                            </li>
+                            <li>
+                                <a href="mod6.html">Module 6</a>
+                            </li>
+                            <li>
+                                <a href="mod7.html">Module 7</a>
+                            </li>
+                            <li>
+                                <a href="mod8.html">Module 8</a>
+                            </li>
+                            <li>
+                                <a href="mod9.html">Module 9</a>
+                            </li>
+                            <li>
+                                <a href="mod10.html">Module 10</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+            <!--.nav -->
+        </div>
+        <!--.wrapper-->
+    </header>
+
+
+    <section>
+
+        <div class="wrapper">
+            <div class="content">
+                <h1 class="center">
+                    Programming for touchscreens and mobile devices
+                </h1>
+                <h4 class="center italic">
+                    Chapter 10
+                </h4>
+            </div>
+            <!--.content-->
+        </div>
+        <!--.wrapper-->
+
+    </section>
+
+
+
+
+
+    <!-- Chapter Project starts here -->
+    <!-- ============================= -->
+    <section>
+
+        <div class="wrapper">
+            <div class="content">
+                <h2 class="center">Google Maps</h2>
+                <br>
+
+                <!-- Display Map -->
+                <div id="map">
+                </div>
+
+
+
+                <p class="center">
+                    <input id="findMe" type="button" value="Find Me" />
+                    <input id="clearMap" type="button" value="Reset" />
+                </p>
+
+
+                <!-- Display result -->
+                <div id="result" class="center">
+                </div>
+
+                <div id="map2"></div>
+
+            </div>
+            <!--.content-->
+        </div>
+        <!--.wrapper-->
+
+    </section>
+
+
+
+    <section>
+        <div class="wrapper">
+            <div class="content">
+                <h1 class="blue-text">Javascript used</h1>
+                <hr>
+                <div class="script-code">
+
+                    <pre><code>
+    <span><code>
+    // initialize map veriable
+    </code></span>
+    var map;
+     <span><code>
+    // init map
+    </code></span>
+    function initMap() {
+        // Create a map object and specify the DOM element for display. 
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {
+                lat: 43,
+                lng: -76
+            },
+            zoom: 7
+        });
+        
+        
+        var marker = new google.maps.Marker({
+            position: map.center,
+            map: map
+        });
+        
+        infoWindow = new google.maps.InfoWindow;
+    }
+    
+    function findMe(){
+        <span><code>
+        // If browser support Geolocation
+        </code></span>
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position){
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                <span><code>
+                // Popup marker on my location
+                </code></span>
+                infoWindow.setPosition(pos);
+                infoWindow.setContent("
+                &lt;h1&gt; &#9737; You are here!&lt;/h1&gt;
+                &lt;hr&gt; &lt;br&gt;
+                &lt;h4&gt;Latitude : "+pos.lat+"&lt;/h4&gt;
+                &lt;br&gt;
+                &lt;h4&gt;Longitude : "+pos.lng+"&lt;/h4&gt;"
+                );
+
+                infoWindow.open(map);
+                map.setCenter(pos);
+                map.setZoom(15);
+                
+                document.getElementById("result").innerHTML= "
+                &lt;h4&gt;Latitude: " + pos.lat + "&lt;/h4&gt;";
+                document.getElementById("result").innerHTML += "
+                &lt;h4&gt;Longitude: " + pos.lng + "&lt;/h4&gt;";
+
+            }, function () {
+                handleLocationError(true, infoWindow, map.getCenter()); 
+            });
+        }
+    }
+    <span><code>
+    // Onclick Find my location 
+    </code></span>
+    document.getElementById("findMe").addEventListener('click', function () {
+        findMe();
+    });
+    
+    <span><code>
+    // Or Reset default init
+    </code></span>
+    document.getElementById("clearMap").addEventListener('click', function () {
+        initMap();
+        document.getElementById("result").innerHTML=""; 
+    });
+    
+</code></pre>
+
+                </div>
+                <!-- .script-code -->
+            </div>
+            <!-- .content -->
+        </div>
+        <!-- .wrapper -->
+
+    </section>
+
+
+    <footer>
+        <div class="wrapper">
+            <div class="copyright center">
+                <p>Copyright&copy; Muhammad Al Juburi 2017</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!--==================
+       Linking Javascript
+    ===================-->
+
+    <script src="js/modernizr.custom.05819.js"></script>
+    <script src="js/main.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByZAxqZvyC5nd85BfG37OAkcqnTa7ARpk&callback=initMap"
+        type="text/javascript"></script>
+
+    <script>
+        // initialize map veriable
+        var map;
+
+        // init map
+        function initMap() {
+            // Create a map object and specify the DOM element for display.
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: 43,
+                    lng: -76
+                },
+                zoom: 7
+            });
+
+            var marker = new google.maps.Marker({
+                position: map.center,
+                map: map
+            });
+
+            infoWindow = new google.maps.InfoWindow;
+        }
+
+        function findMe() {
+            // If browser support Geolocation
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    // Popup marker on my location
+                    infoWindow.setPosition(pos);
+                    infoWindow.setContent(
+                        "<h1>&#9737; You are here!</h1><hr><br><h4>Latitude : "+pos.lat+"</h4><br> <h4>Longitude : "+pos.lng+"</h4>"
+                        );
+                    infoWindow.open(map);
+                    map.setCenter(pos);
+                    map.setZoom(15);
+                    
+
+                    document.getElementById("result").innerHTML = "<h4>Latitude:  " + pos.lat + "</h4>";
+                    document.getElementById("result").innerHTML += "<h4>Longitude:  " + pos.lng + "</h4>";
+
+                }, function () {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            }
+        }
+
+
+        // Onclick Find my location
+        document.getElementById("findMe").addEventListener('click', function () {
+            findMe();
+        });
+
+        // Or Reset default init
+        document.getElementById("clearMap").addEventListener('click', function () {
+            initMap();
+            document.getElementById("result").innerHTML= "";
+        });
+
+    </script>
+
+</body>
+
+</html>

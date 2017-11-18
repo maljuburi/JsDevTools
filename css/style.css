@@ -187,6 +187,38 @@ header {
 .next:hover {
   background-color: rgba(0, 0, 0, 0.8); }
 
+input[type=text],
+input[type=number],
+input[type=email],
+input[type=password],
+select,
+textarea {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4); }
+  input[type=text]:focus,
+  input[type=number]:focus,
+  input[type=email]:focus,
+  input[type=password]:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border: 1px solid #31708f; }
+
+input[type=button],
+input[type=submit],
+input[type=reset] {
+  padding: 10px;
+  background-color: #ededed;
+  color: #202020;
+  margin: 5px 0;
+  border-radius: 5px;
+  outline: none; }
+
 .form {
   width: 90%;
   padding: 1em 2em;
@@ -195,38 +227,10 @@ header {
   border: 1px solid #31708f;
   border-radius: 5px;
   color: #ededed; }
-  .form input[type=text],
-  .form input[type=number],
-  .form input[type=email],
-  .form input[type=password],
-  .form select,
-  .form textarea {
-    display: block;
-    width: 100%;
-    margin: 0 auto;
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4); }
-    .form input[type=text]:focus,
-    .form input[type=number]:focus,
-    .form input[type=email]:focus,
-    .form input[type=password]:focus,
-    .form select:focus,
-    .form textarea:focus {
-      outline: none;
-      border: 1px solid #31708f; }
-  .form input[type=button],
-  .form input[type=submit],
-  .form input[type=reset] {
-    padding: 10px;
-    background-color: #ededed;
-    color: #202020;
-    margin: 5px 0;
-    border-radius: 5px; }
-  .form label {
-    display: inline-block;
-    padding: 10px; }
+
+label {
+  display: inline-block;
+  padding: 10px; }
 
 .hide {
   display: none; }
@@ -264,6 +268,13 @@ table {
     background-color: #31708f; }
     table tr td {
       padding: 10px; }
+
+#map {
+  height: 500px;
+  width: 100%;
+  border: 0.5em solid #31708f;
+  border-radius: 0.5em;
+  box-shadow: 0 0 5px black; }
 
 .copyright {
   padding: 20px;

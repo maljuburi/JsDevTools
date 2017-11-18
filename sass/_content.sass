@@ -78,6 +78,34 @@
 
 //Module 4
 
+input[type=text],
+input[type=number],
+input[type=email],
+input[type=password],
+select,
+textarea
+  display: block
+  width: 100%
+  margin: 0 auto
+  padding: 10px
+  border-radius: 5px
+  border: none
+  box-shadow: 0 0 5px rgba(0,0,0, 0.4)
+  &:focus
+    outline: none
+    border: 1px solid $blue
+
+input[type=button],
+input[type=submit],
+input[type=reset]
+  padding: 10px
+  background-color: $lightgray
+  color: $darkgray
+  margin: 5px 0
+  border-radius: 5px
+  outline: none
+
+
 .form
   width: 90%
   padding: 1em 2em
@@ -88,36 +116,9 @@
   color: $lightgray
 
 
-  input[type=text],
-  input[type=number],
-  input[type=email],
-  input[type=password],
-  select,
-  textarea
-    display: block
-    width: 100%
-    margin: 0 auto
-    padding: 10px
-    border-radius: 5px
-    border: none
-    box-shadow: 0 0 5px rgba(0,0,0, 0.4)
-    &:focus
-      outline: none
-      border: 1px solid $blue
-
-  input[type=button],
-  input[type=submit],
-  input[type=reset]
-    padding: 10px
-    background-color: $lightgray
-    color: $darkgray
-    margin: 5px 0
-    border-radius: 5px
-
-
-  label
-    display: inline-block
-    padding: 10px
+label
+  display: inline-block
+  padding: 10px
 .hide
   display: none
 .show
@@ -156,3 +157,13 @@ table
     background-color: $blue
     td
       padding: 10px
+
+
+// module 10
+
+#map
+  height: 500px
+  width: 100%
+  border: 0.5em solid $blue
+  border-radius: 0.5em
+  box-shadow: 0 0 5px black
