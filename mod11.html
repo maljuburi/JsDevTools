@@ -5,23 +5,23 @@
 
     <!--
       JavaScript 6th Edition
-      Chapter 7
-      Individual Case Project 7
+      Chapter 11
+      Individual Case Project 11
 
       Author: Muhammad Al Juburi
-      Date:   10/24/17
+      Date:   12/05/17
 
    -->
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>JsDevTools | Module 7</title>
+    <title>JsDevTools | Module 11</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/getcookie.js"></script>
 </head>
 
 
-<body onload="procCookie()">
+<body>
 
     <header>
         <div class="wrapper">
@@ -85,15 +85,16 @@
     </header>
 
 
+
     <section>
 
         <div class="wrapper">
             <div class="content">
                 <h1 class="center">
-                    Object Orianted Programming
+                    AJAX
                 </h1>
                 <h4 class="center italic">
-                    Chapter 7
+                    Chapter 11
                 </h4>
             </div>
             <!--.content-->
@@ -104,34 +105,21 @@
 
 
 
-
-
-    <!-- Chapter Project starts here -->
-    <!-- ============================= -->
     <section>
 
         <div class="wrapper">
             <div class="content">
-              <h2 class="center">Select a Date</h2><br>
-              <form onsubmit="return displayDate();" name="form" class="form">
-
-                <p>
-                  Month : <input type="text" name="month" title="Format: MM &#10; example: 10" pattern="(0[0-9]|1[0-2])" placeholder="MM" required>
-                </p><br>
-                <p>
-                  Day : <input type="text" name="day" title="Format: DD &#10; example: 24" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])" placeholder="DD" required>
-                </p><br>
-                <p>
-                  Year : <input type="text" name="year" title="Format: YYYY &#10; example: 2017" pattern="[0-9]{4}" placeholder="YYYY" required>
-                </p><br>
+                <h1 class="center">
+                    Displaying AJAX Data
+                </h1>
                 <br>
 
-                <p class="center">
-                  <input type="submit" name="submit" value="Submit">
-                  <input type="reset" name="reset" value="Reset">
-                </p>
+                <div id="paragraph" class="paragraph">
+                
+                </div>
 
-              </form>
+
+                <button id="readmore" class="readmore">Read More</button>
 
             </div>
             <!--.content-->
@@ -141,23 +129,8 @@
     </section>
 
 
-    <section>
 
-      <div class="wrapper">
-        <div class="content">
-          <h1 class="center">
-            Output
-          </h1>
-          <br>
-          <div id="dateResult">
 
-          </div>
-        </div>
-        <!--.content-->
-      </div>
-      <!--.wrapper-->
-
-    </section>
 
 
     <section>
@@ -168,33 +141,52 @@
                 <div class="script-code">
 
                     <pre><code>
-                      function displayDate() {
-                        var result = document.getElementById("dateResult");
-                        var month = document.form.month.value;
-                        var day = document.form.day.value;
-                        var year = document.form.year.value;
+        <span><code>
+        // declare default index and html string
+        //======================================
+        </code></span>
+        var i = 0;
 
-                        var prevDate = new Date(year,month,day);
-                        var currentDate = new Date();
+        var htmlstring = "&lt;p&gt;========= Default Paragraph ===========&lt;br&gt;&lt;br&gt; Click Read More to display more content&lt;/p&gt;";
 
-                        elapsedDay = 1000 * 60 * 60 * 24;
-                        elapsedMonth = elapsedDay * 31;
-                        elapsedYear = elapsedMonth * 12;
-                        elapsedDate = currentDate - prevDate;
+        var dataContainer = document.getElementById("paragraph");
+        var readmore = document.getElementById("readmore");
+        dataContainer.innerHTML=htmlstring;
 
-                        daydiff = Math.floor(elapsedDate/elapsedDay)+31;
-                        monthdiff = Math.floor(elapsedDate/elapsedMonth)+1;
-                        yeardiff = Math.floor(elapsedDate/elapsedYear);
+        <span><code>
+        // call AJAX Request
+        //====================
+        </code></span>
+        var myReq = new XMLHttpRequest();
 
+        myReq.open("GET", "https://maljuburi.github.io/JSONData/data-1.json");
+        myReq.onload = function () {
+            <span><code>
+            // Storing JSON data into myData
+            </code></span>
+            var myData = JSON.parse(myReq.responseText);
+            readmore.addEventListener("click",function () {
 
-                        result.innerHTML += "&lt;h4&gt"+yeardiff+" Year(s) &lt;/h4&gt";
-                        result.innerHTML += "&lt;h4&gt"+monthdiff+" Month(s) &lt;/h4&gt";
-                        result.innerHTML += "&lt;h4&gt"+daydiff+" Day(s) &lt;/h4&gt";
+                if (i < myData.length) {
+                    htmlstring += "&lt;p&gt;" + myData[i].header;
+                    htmlstring += "&lt;br&gt;&lt;br&gt;" ;
+                    htmlstring += myData[i].text;
+                    htmlstring += "&lt;/p&gt;" ;
+                    dataContainer.innerHTML=htmlstring;
+                    i++;
 
-                        return false;
-                        }
+                } else {
 
-                    </code></pre>
+                    readmore.style.display = "none" ;
+
+                }
+            });
+        };
+        <span><code>
+        // send my request to the DOM
+        </code></span>
+        myReq.send();
+      </code></pre>
 
                 </div>
                 <!-- .script-code -->
@@ -204,6 +196,9 @@
         <!-- .wrapper -->
 
     </section>
+
+
+
 
 
     <footer>
@@ -221,33 +216,46 @@
 
     <script src="js/modernizr.custom.05819.js"></script>
     <script src="js/main.js"></script>
-    <script>
-    function displayDate() {
-      var result = document.getElementById("dateResult");
-      var month = document.form.month.value;
-      var day = document.form.day.value;
-      var year = document.form.year.value;
+    <script type="text/javascript">
 
-      var prevDate = new Date(year,month,day);
-      var currentDate = new Date();
+        // declare default index and html string
+        var i = 0;
+        var dataContainer = document.getElementById("paragraph");
+        var htmlstring = "<p>========= Default Paragraph =========<br><br>Click Read More to display more content</p>";
 
-      elapsedDay = 1000 * 60 * 60 * 24;
-      elapsedMonth = elapsedDay * 31;
-      elapsedYear = elapsedMonth * 12;
-      elapsedDate = currentDate - prevDate;
-
-      daydiff = Math.floor(elapsedDate/elapsedDay)+31;
-      monthdiff = Math.floor(elapsedDate/elapsedMonth)+1;
-      yeardiff = Math.floor(elapsedDate/elapsedYear);
+        var readmore = document.getElementById("readmore");
+        dataContainer.innerHTML = htmlstring;
 
 
-      result.innerHTML += "<h4>"+yeardiff+" Year(s) </h4>";
-      result.innerHTML += "<h4>"+monthdiff+" Month(s) </h4>";
-      result.innerHTML += "<h4>"+daydiff+" Day(s) </h4>";
 
-      return false;
-      }
+        // call AJAX Request
+        var myReq = new XMLHttpRequest();
+        myReq.open("GET", "https://maljuburi.github.io/JSONData/data-1.json");
+        myReq.onload = function () {
+            // Storing JSON data into myData
+            var myData = JSON.parse(myReq.responseText);
+
+            readmore.addEventListener("click", function () {
+                if (i < myData.length) {
+                    htmlstring += "<p>" + myData[i].header;
+                    htmlstring += "<br><br>";
+                    htmlstring += myData[i].text;
+                    htmlstring += "</p>";
+                    dataContainer.innerHTML = htmlstring;
+                    i++;
+                } else {
+                    readmore.style.display = "none";
+                }
+
+            });
+           
+        };
+
+        // send my request to the DOM
+        myReq.send();
+
     </script>
+
 </body>
 
 </html>

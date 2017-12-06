@@ -276,6 +276,23 @@ table {
   border-radius: 0.5em;
   box-shadow: 0 0 5px black; }
 
+.paragraph p {
+  box-shadow: 0 0 0.2em #202020;
+  border-radius: 0.5em;
+  padding: 1em;
+  text-align: center;
+  color: #31708f; }
+
+.readmore {
+  width: 100%;
+  margin: 0 auto;
+  border: none;
+  background: #31708f;
+  color: #ededed;
+  padding: 1em;
+  border-radius: 0.3em;
+  box-shadow: 0 0 0.1em black; }
+
 .copyright {
   padding: 20px;
   background: white; }
