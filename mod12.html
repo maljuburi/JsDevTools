@@ -5,8 +5,8 @@
 
     <!--
       JavaScript 6th Edition
-      Chapter 11
-      Individual Case Project 11
+      Chapter 12
+      Individual Case Project 12
 
       Author: Muhammad Al Juburi
       Date:   12/05/17
@@ -15,7 +15,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>JsDevTools | Module 11</title>
+    <title>JsDevTools | Module 12</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/getcookie.js"></script>
 </head>
@@ -94,10 +94,10 @@
         <div class="wrapper">
             <div class="content">
                 <h1 class="center">
-                    AJAX
+                    jQuery
                 </h1>
                 <h4 class="center italic">
-                    Chapter 11
+                    Chapter 12
                 </h4>
             </div>
             <!--.content-->
@@ -111,19 +111,15 @@
     <section>
 
         <div class="wrapper">
-            <div class="content">
+            <div class="content center">
                 <h1 class="center">
-                    Displaying AJAX Data
+                    Utilizing jQuery
                 </h1>
                 <br>
-
-                <div id="paragraph" class="paragraph">
-                
-                </div>
-
-
-                <button id="readmore" class="readmore">Read More</button>
-
+                <div class="box red-box"></div>
+                <div class="box green-box"></div>
+                <div class="box blue-box"></div><br>
+                <input id="showBox" type="button" value="SHOW BOXES">
             </div>
             <!--.content-->
         </div>
@@ -143,53 +139,24 @@
                 <hr>
                 <div class="script-code">
 
-                    <pre><code>
-        <span><code>
-        // declare default index and html string
-        //======================================
-        </code></span>
-        var i = 0;
+    <pre><code>
+        $(document).ready(function(){
 
-        var htmlstring = "&lt;p&gt;========= Default Paragraph ===========&lt;br&gt;&lt;br&gt; Click Read More to display more content&lt;/p&gt;";
-
-        var dataContainer = document.getElementById("paragraph");
-        var readmore = document.getElementById("readmore");
-        dataContainer.innerHTML=htmlstring;
-
-        <span><code>
-        // call AJAX Request
-        //====================
-        </code></span>
-        var myReq = new XMLHttpRequest();
-
-        myReq.open("GET", "https://maljuburi.github.io/JSONData/data-1.json");
-        myReq.onload = function () {
-            <span><code>
-            // Storing JSON data into myData
-            </code></span>
-            var myData = JSON.parse(myReq.responseText);
-            readmore.addEventListener("click",function () {
-
-                if (i < myData.length) {
-                    htmlstring += "&lt;p&gt;" + myData[i].header;
-                    htmlstring += "&lt;br&gt;&lt;br&gt;" ;
-                    htmlstring += myData[i].text;
-                    htmlstring += "&lt;/p&gt;" ;
-                    dataContainer.innerHTML=htmlstring;
-                    i++;
-
-                } else {
-
-                    readmore.style.display = "none" ;
-
-                }
+            var showbox =  $("#showBox");
+            
+            showbox.on("click", function(){
+                showBox();
             });
-        };
-        <span><code>
-        // send my request to the DOM
-        </code></span>
-        myReq.send();
-      </code></pre>
+
+            function showBox(){
+                $(".box").fadeIn();
+            }
+
+            $(".box").on('click', function(){
+                $(this).fadeOut();
+            });
+        });
+    </code></pre>
 
                 </div>
                 <!-- .script-code -->
@@ -216,47 +183,28 @@
     <!--==================
        Linking Javascript
     ===================-->
-
+    <script src="js/jquery.js"></script>
     <script src="js/modernizr.custom.05819.js"></script>
     <script src="js/main.js"></script>
     <script type="text/javascript">
 
-        // declare default index and html string
-        var i = 0;
-        var dataContainer = document.getElementById("paragraph");
-        var htmlstring = "<p>========= Default Paragraph =========<br><br>Click Read More to display more content</p>";
+        $(document).ready(function(){
 
-        var readmore = document.getElementById("readmore");
-        dataContainer.innerHTML = htmlstring;
-
-
-
-        // call AJAX Request
-        var myReq = new XMLHttpRequest();
-        myReq.open("GET", "https://maljuburi.github.io/JSONData/data-1.json");
-        myReq.onload = function () {
-            // Storing JSON data into myData
-            var myData = JSON.parse(myReq.responseText);
-
-            readmore.addEventListener("click", function () {
-                if (i < myData.length) {
-                    htmlstring += "<p>" + myData[i].header;
-                    htmlstring += "<br><br>";
-                    htmlstring += myData[i].text;
-                    htmlstring += "</p>";
-                    dataContainer.innerHTML = htmlstring;
-                    i++;
-                } else {
-                    readmore.style.display = "none";
-                }
-
+            var showbox =  $("#showBox");
+            
+            showbox.on("click", function(){
+                showBox();
             });
-           
-        };
 
-        // send my request to the DOM
-        myReq.send();
+            function showBox(){
+                $(".box").fadeIn();
+            }
 
+            $(".box").on('click', function(){
+                $(this).fadeOut();
+            });
+        });
+        
     </script>
 
 </body>

@@ -293,6 +293,21 @@ table {
   border-radius: 0.3em;
   box-shadow: 0 0 0.1em black; }
 
+.box {
+  width: 25%;
+  height: 200px;
+  display: inline-block;
+  border-radius: 1em; }
+
+.red-box {
+  background: #a94442; }
+
+.blue-box {
+  background: #31708f; }
+
+.green-box {
+  background: #3c763d; }
+
 .copyright {
   padding: 20px;
   background: white; }
